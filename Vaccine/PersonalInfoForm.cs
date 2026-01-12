@@ -20,23 +20,23 @@ namespace Vaccine
 
         private void ok_button_Click(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(first_name.Text, @"^[А-Я][а-я]") || !Regex.IsMatch(last_name.Text, @"^[А-Я][а-я]"))
+            if (!Regex.IsMatch(first_name.Text, @"^[А-Я][а-я]*$") || !Regex.IsMatch(last_name.Text, @"^[А-Я][а-я]*$"))
             {
                 MessageBox.Show("Имената трябва да започват с главна буква а останалите да са малки букви (на Кирилица!).",
                     "Грешка при валидиране.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!Regex.IsMatch(egn.Text, @"^\d{10}$"))
+            if (!Regex.IsMatch(egn.Text, @"^[0-9]{10}$"))
             {
                 MessageBox.Show("ЕГН трябва да съдържа точно 10 цифри.",
                     "Грешка при валидиране.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if(years.Text == "")
+            if (years.Text == "")
             {
-                MessageBox.Show("Полето (години) трябва да е попълнено!","Грешка при валидиране.",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Полето (години) трябва да е попълнено!", "Грешка при валидиране.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -47,13 +47,13 @@ namespace Vaccine
                 dateTimePicker1.Text,
                 male.Checked ? "Male" : "Female");
 
-            vaccine = new Vaccine(pacientInfo);
+            vaccine = new Vaccine(this, pacientInfo);
             vaccine.Show();
         }
 
         private void egn_TextChanged(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(egn.Text, @"^\d{10}$"))
+            if (!Regex.IsMatch(egn.Text, @"^[0-9]{10}$"))
                 return;
 
             try

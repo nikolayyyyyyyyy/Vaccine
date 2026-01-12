@@ -11,10 +11,12 @@ namespace Vaccine
     public partial class Vaccine : Form
     {
         PacientInfo pacient;
-        public Vaccine(PacientInfo pacientInfo)
+        Form prevForm;
+        public Vaccine(Form form,PacientInfo pacientInfo)
         {
             InitializeComponent();
             pacient = pacientInfo;
+            prevForm = form;
         }
 
         private void save_btn_Click(object sender, EventArgs e)
@@ -36,6 +38,15 @@ namespace Vaccine
             {
                 writer.Write(pacient.printPacientInfo());
             }
+
+            foreach(Control c in prevForm.Controls)
+            {
+                if(c is TextBox textBox)
+                {
+                    textBox.Clear();
+                }
+            }
+            this.Hide();
         }
 
         private void Vaccine_Load(object sender, EventArgs e)

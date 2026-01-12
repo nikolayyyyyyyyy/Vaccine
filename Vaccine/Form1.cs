@@ -14,7 +14,7 @@ namespace Vaccine
         {
             if (!Regex.IsMatch(username.Text, @"^[A-Z][A-Z1-5]{4,9}$"))
             {
-                MessageBox.Show("Първият символ на USERNAME трябва да е буква (A–Z), дължина 5–10 само главни латински букви.",
+                MessageBox.Show("Първият символ на USERNAME трябва да е буква (A–Z), дължина 5–10 само главни латински букви и цифри (A–Z1-5).",
                     "Грешка при валидация.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
