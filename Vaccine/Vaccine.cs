@@ -10,12 +10,10 @@ namespace Vaccine
 {
     public partial class Vaccine : Form
     {
-        Form prevForm;
         PacientInfo pacient;
-        public Vaccine(Form form, PacientInfo pacientInfo)
+        public Vaccine(PacientInfo pacientInfo)
         {
             InitializeComponent();
-            prevForm = form;
             pacient = pacientInfo;
         }
 
@@ -34,9 +32,9 @@ namespace Vaccine
                 pacient.setVaccine("ТетаФид");
             }
 
-            using (StreamWriter sw = new StreamWriter("pacients.txt", true))
+            using (StreamWriter writer = new StreamWriter("pacients.txt", true))
             {
-                sw.Write(pacient.printPacientInfo());
+                writer.Write(pacient.printPacientInfo());
             }
         }
 

@@ -47,7 +47,7 @@ namespace Vaccine
                 dateTimePicker1.Text,
                 male.Checked ? "Male" : "Female");
 
-            vaccine = new Vaccine(this, pacientInfo);
+            vaccine = new Vaccine(pacientInfo);
             vaccine.Show();
         }
 
