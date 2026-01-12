@@ -10,9 +10,50 @@ namespace Vaccine
 {
     public partial class Vaccine : Form
     {
-        public Vaccine()
+        Form prevForm;
+        PacientInfo pacient;
+        public Vaccine(Form form, PacientInfo pacientInfo)
         {
             InitializeComponent();
+            prevForm = form;
+            pacient = pacientInfo;
+        }
+
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+            if (hepatit.Checked == true)
+            {
+                pacient.setVaccine("Хепатит");
+            }
+            else if (bcj.Checked == true)
+            {
+                pacient.setVaccine("БЦЖ");
+            }
+            else if (tetafid.Checked == true)
+            {
+                pacient.setVaccine("ТетаФид");
+            }
+
+            MessageBox.Show(pacient.printPacientInfo());
+        }
+
+        private void Vaccine_Load(object sender, EventArgs e)
+        {
+            if (pacient.getAge() >= 1 && pacient.getAge() <= 6)
+            {
+                hepatit.Checked = true;
+                pacient.setVaccine("Хепатит");
+            }
+            else if (pacient.getAge() >= 7 && pacient.getAge() <= 12)
+            {
+                bcj.Checked = true;
+                pacient.setVaccine("БЦЖ");
+            }
+            else if (pacient.getAge() >= 13 && pacient.getAge() <= 18)
+            {
+                tetafid.Checked = true;
+                pacient.setVaccine("ТетаФид");
+            }
         }
     }
 }

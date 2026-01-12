@@ -34,8 +34,8 @@
             label4 = new Label();
             label5 = new Label();
             groupBox1 = new GroupBox();
-            male = new RadioButton();
             female = new RadioButton();
+            male = new RadioButton();
             ok_button = new Button();
             first_name = new TextBox();
             last_name = new TextBox();
@@ -101,17 +101,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "sex";
             // 
-            // male
-            // 
-            male.AutoSize = true;
-            male.Location = new Point(15, 32);
-            male.Name = "male";
-            male.Size = new Size(63, 24);
-            male.TabIndex = 0;
-            male.TabStop = true;
-            male.Text = "male";
-            male.UseVisualStyleBackColor = true;
-            // 
             // female
             // 
             female.AutoSize = true;
@@ -123,6 +112,17 @@
             female.Text = "female";
             female.UseVisualStyleBackColor = true;
             // 
+            // male
+            // 
+            male.AutoSize = true;
+            male.Location = new Point(15, 32);
+            male.Name = "male";
+            male.Size = new Size(63, 24);
+            male.TabIndex = 0;
+            male.TabStop = true;
+            male.Text = "male";
+            male.UseVisualStyleBackColor = true;
+            // 
             // ok_button
             // 
             ok_button.Location = new Point(316, 301);
@@ -131,6 +131,7 @@
             ok_button.TabIndex = 6;
             ok_button.Text = "Ok";
             ok_button.UseVisualStyleBackColor = true;
+            ok_button.Click += ok_button_Click;
             // 
             // first_name
             // 
@@ -152,6 +153,7 @@
             egn.Name = "egn";
             egn.Size = new Size(307, 27);
             egn.TabIndex = 9;
+            egn.TextChanged += egn_TextChanged;
             // 
             // years
             // 
