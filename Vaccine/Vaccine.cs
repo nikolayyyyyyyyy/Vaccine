@@ -34,7 +34,10 @@ namespace Vaccine
                 pacient.setVaccine("ТетаФид");
             }
 
-            MessageBox.Show(pacient.printPacientInfo());
+            using (StreamWriter sw = new StreamWriter("pacients.txt", true))
+            {
+                sw.Write(pacient.printPacientInfo());
+            }
         }
 
         private void Vaccine_Load(object sender, EventArgs e)
